@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Crumb &amp; Co. | Our Lahore Bakery</title>
+  <meta name="description" content="Get to know Crumb & Co., see our Lahore opening hours, and find the right cake size for your celebration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #FFF8F0;
+      --text: #3B2A20;
+      --tomato: #C8553D;
+      --accent: #F2C14E;
+      --card: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Poppins", sans-serif;
+      line-height: 1.65;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--tomato);
+      font-family: "Playfair Display", serif;
+      line-height: 1.2;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header,
+    .site-footer {
+      padding: 1rem max(1.25rem, calc((100% - 1120px) / 2));
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .brand {
+      color: var(--tomato);
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+
+    .tagline {
+      margin: 0.25rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      font-weight: 600;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.25rem;
+    }
+
+    main {
+      width: min(900px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    .page-intro {
+      padding: 3.5rem 1rem 2rem;
+      text-align: center;
+    }
+
+    .page-intro h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2.5rem, 7vw, 4rem);
+    }
+
+    .page-intro p {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      padding: clamp(1.25rem, 4vw, 2rem);
+      border-radius: 0.75rem;
+      background: var(--card);
+    }
+
+    .card h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.7rem;
+    }
+
+    .card p {
+      margin: 0;
+    }
+
+    .story-emoji {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    .hours-list {
+      margin: 0;
+    }
+
+    .hours-list div {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .hours-list div:last-child {
+      border-bottom: 0;
+    }
+
+    .hours-list dt {
+      font-weight: 600;
+    }
+
+    .hours-list dd {
+      margin: 0;
+      text-align: right;
+    }
+
+    .calculator {
+      max-width: 620px;
+      margin: 1rem auto 3.5rem;
+    }
+
+    .calculator label {
+      display: block;
+      font-weight: 600;
+    }
+
+    .calculator input {
+      width: 100%;
+      min-height: 2.8rem;
+      margin-top: 0.35rem;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid var(--text);
+      border-radius: 0.35rem;
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+    }
+
+    input:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .calculator-hint {
+      margin: 0.4rem 0 0;
+      font-size: 0.85rem;
+    }
+
+    .recommendation {
+      min-height: 2rem;
+      margin: 1rem 0 0;
+      padding: 0.8rem;
+      border-radius: 0.5rem;
+      background: var(--background);
+      font-weight: 600;
+    }
+
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.5rem;
+      border-top: 1px solid var(--accent);
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hours-list div {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <a class="brand" href="index.html">Crumb &amp; Co.</a>
+      <p class="tagline">Baked fresh in Lahore, every morning.</p>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro" aria-labelledby="page-title">
+      <h1 id="page-title">A little about us</h1>
+      <p>We bake the good things you love, fresh each morning in the heart of Lahore.</p>
+    </section>
+
+    <div class="content-grid">
+      <section class="card" aria-labelledby="story-title">
+        <span class="story-emoji" aria-hidden="true">🥐</span>
+        <h2 id="story-title">Our story</h2>
+        <p>Crumb &amp; Co. began with a warm oven, a family recipe book, and a love of sharing. Today, we still make our cakes, cookies, and breads in small batches, so there’s something lovely waiting for you at pickup.</p>
+      </section>
+
+      <section class="card" aria-labelledby="hours-title">
+        <h2 id="hours-title">Opening hours</h2>
+        <dl class="hours-list">
+          <div><dt>Monday</dt><dd>Closed</dd></div>
+          <div><dt>Tuesday – Sunday</dt><dd>8:00 am – 6:00 pm</dd></div>
+        </dl>
+      </section>
+    </div>
+
+    <section class="card calculator" aria-labelledby="calculator-title">
+      <h2 id="calculator-title">Party cake calculator 🎂</h2>
+      <p>Tell us how many guests you’re celebrating with, and we’ll suggest a cake size.</p>
+      <label for="guest-count">Number of guests</label>
+      <input id="guest-count" name="guests" type="number" min="1" step="1" inputmode="numeric" aria-describedby="calculator-hint cake-recommendation">
+      <p class="calculator-hint" id="calculator-hint">Our 6-inch cake serves 6–8, 8-inch serves 9–16, and 10-inch serves up to 24.</p>
+      <p class="recommendation" id="cake-recommendation" role="status" aria-live="polite">Enter your guest count to see a cake recommendation.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Crumb &amp; Co. · Lahore</p>
+    <p>WhatsApp: 0300-1234567</p>
+  </footer>
+
+  <script>
+    const guestCountInput = document.querySelector("#guest-count");
+    const cakeRecommendation = document.querySelector("#cake-recommendation");
+
+    function formatPrice(amount) {
+      return `Rs ${amount.toLocaleString("en-US")}`;
+    }
+
+    function updateCakeRecommendation() {
+      const guests = guestCountInput.valueAsNumber;
+
+      if (!Number.isInteger(guests) || guests < 1) {
+        cakeRecommendation.textContent = guestCountInput.value
+          ? "Please enter a whole number of guests."
+          : "Enter your guest count to see a cake recommendation.";
+        return;
+      }
+
+      let size;
+      let servings;
+      let price;
+      let cakeCount = 1;
+
+      if (guests <= 8) {
+        size = "6-inch";
+        servings = "up to 8 guests";
+        price = 2500;
+      } else if (guests <= 16) {
+        size = "8-inch";
+        servings = "up to 16 guests";
+        price = 4000;
+      } else {
+        size = "10-inch";
+        servings = "up to 24 guests";
+        price = 5500;
+        cakeCount = Math.ceil(guests / 24);
+      }
+
+      const cakeLabel = cakeCount === 1 ? "cake" : "cakes";
+      cakeRecommendation.textContent = `We recommend ${cakeCount} ${size} ${cakeLabel} for ${servings}. Price: ${formatPrice(price * cakeCount)}.`;
+    }
+
+    guestCountInput.addEventListener("input", updateCakeRecommendation);
+  </script>
+</body>
+</html>

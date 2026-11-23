@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crumb &amp; Co. | Fresh from our Lahore kitchen</title>
+  <meta name="description" content="Baked fresh in Lahore, every morning. Explore the Crumb & Co. menu and place your pickup order.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #FFF8F0;
+      --text: #3B2A20;
+      --tomato: #C8553D;
+      --accent: #F2C14E;
+      --card: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Poppins", sans-serif;
+      line-height: 1.65;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--tomato);
+      font-family: "Playfair Display", serif;
+      line-height: 1.2;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header,
+    .site-footer {
+      padding: 1rem max(1.25rem, calc((100% - 1120px) / 2));
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .brand {
+      color: var(--tomato);
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+
+    .tagline {
+      margin: 0.25rem 0 0;
+      font-size: 0.8rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      font-weight: 600;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.25rem;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 0.75rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin: 0 auto 1rem;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+    }
+
+    .hero p:not(.eyebrow) {
+      margin: 0 auto 1.75rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.8rem 1.4rem;
+      border: 2px solid var(--tomato);
+      border-radius: 0.5rem;
+      background: var(--tomato);
+      color: var(--card);
+      font: inherit;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--text);
+      border-color: var(--text);
+    }
+
+    section {
+      padding: 2rem 0 3.5rem;
+      scroll-margin-top: 1rem;
+    }
+
+    .section-heading {
+      margin: 0 0 1.5rem;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      text-align: center;
+    }
+
+    .category + .category {
+      margin-top: 2rem;
+    }
+
+    .category h3 {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .menu-card {
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      background: var(--card);
+    }
+
+    .menu-card .emoji {
+      font-size: 1.8rem;
+    }
+
+    .menu-card h4 {
+      margin: 0.35rem 0;
+      color: var(--tomato);
+      font-size: 1.05rem;
+    }
+
+    .menu-card p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .menu-card .price {
+      margin-top: 0.6rem;
+      font-weight: 700;
+    }
+
+    .about-copy {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .order-panel {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: clamp(1.25rem, 4vw, 2rem);
+      border-radius: 0.75rem;
+      background: var(--card);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .field label,
+    .quantity-row label {
+      display: block;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      min-height: 2.8rem;
+      margin-top: 0.35rem;
+      padding: 0.55rem 0.7rem;
+      border: 1px solid var(--text);
+      border-radius: 0.35rem;
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+    }
+
+    input:focus-visible,
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .error {
+      min-height: 1.5rem;
+      margin: 0.2rem 0 0;
+      color: var(--tomato);
+      font-size: 0.82rem;
+    }
+
+    .quantity-list {
+      margin: 1.5rem 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quantity-row {
+      display: grid;
+      grid-template-columns: 1fr 6rem;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .quantity-row label {
+      font-weight: 500;
+    }
+
+    .quantity-row input {
+      margin: 0;
+    }
+
+    .order-total {
+      margin: 1rem 0 1.25rem;
+      color: var(--tomato);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .thank-you {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border-radius: 0.5rem;
+      background: var(--background);
+    }
+
+    .thank-you h3 {
+      margin-top: 0;
+    }
+
+    .thank-you ul {
+      padding-left: 1.25rem;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.5rem;
+      margin-top: 1rem;
+      border-top: 1px solid var(--accent);
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      .hero {
+        padding: 3.5rem 0.5rem;
+      }
+
+      .menu-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <a class="brand" href="index.html">Crumb &amp; Co.</a>
+      <p class="tagline">Baked fresh in Lahore, every morning.</p>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Fresh from our Lahore kitchen</p>
+      <h1 id="hero-title">A little something lovely, baked fresh.</h1>
+      <p>Baked fresh in Lahore, every morning.</p>
+      <a class="button" href="#order">Order now</a>
+    </section>
+
+    <section id="menu" aria-labelledby="menu-title">
+      <h2 class="section-heading" id="menu-title">Our menu</h2>
+      <div class="category">
+        <h3>Cakes</h3>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <span class="emoji" aria-hidden="true">🍰</span>
+            <h4>Chocolate Fudge Cake</h4>
+            <p>Rich chocolate layers with a smooth fudge finish.</p>
+            <p class="price">Rs 1,250</p>
+          </article>
+          <article class="menu-card">
+            <span class="emoji" aria-hidden="true">🍓</span>
+            <h4>Strawberry Shortcake</h4>
+            <p>Soft vanilla sponge with fresh strawberry cream.</p>
+            <p class="price">Rs 1,400</p>
+          </article>
+          <article class="menu-card">
+            <span class="emoji" aria-hidden="true">🍋</span>
+            <h4>Lemon Drizzle Loaf</h4>
+            <p>Bright lemon loaf with a sweet citrus glaze.</p>
+            <p class="price">Rs 850</p>
+          </article>
+        </div>
+      </div>
+      <div class="category">
+        <h3>Cookies</h3>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <span class="emoji" aria-hidden="true">🍪</span>
+            <h4>Chocolate Chip Cookies</h4>
+            <p>Golden, chewy cookies loaded with chocolate chips.</p>
+            <p class="price">Rs 450</p>
+          </article>
+          <article class="menu-card">
+            <span class="emoji" aria-hidden="true">🥜</span>
+            <h4>Peanut Butter Cookies</h4>
+            <p>Soft, nutty cookies with a little crunch.</p>
+            <p class="price">Rs 500</p>
+          </article>
+          <article class="menu-card">
+            <span class="emoji" aria-hidden="true">🌾</span>
+            <h4>Oat &amp; Raisin Cookies</h4>
+            <p>Hearty oats and sweet raisins in every bite.</p>
+            <p class="price">Rs 400</p>
+          </article>
+        </div>
+      </div>
+      <div class="category">
+        <h3>Breads</h3>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <span class="emoji" aria-hidden="true">🍞</span>
+            <h4>Sourdough Boule</h4>
+            <p>Crusty outside, tender inside, and naturally leavened.</p>
+            <p class="price">Rs 700</p>
+          </article>
+          <article class="menu-card">
+            <span class="emoji" aria-hidden="true">🥖</span>
+            <h4>Soft Milk Bread</h4>
+            <p>A pillowy, lightly sweet loaf for your everyday table.</p>
+            <p class="price">Rs 550</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 class="section-heading" id="about-title">A little about us</h2>
+      <p class="about-copy">We’re a small Lahore bakery making comforting cakes, cookies, and breads from scratch. Choose your favourites and we’ll have them ready for pickup, fresh from our oven.</p>
+    </section>
+
+    <section id="order" aria-labelledby="order-title">
+      <h2 class="section-heading" id="order-title">Place your order</h2>
+      <div class="order-panel">
+        <form id="order-form" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="customer-name">Your name</label>
+              <input id="customer-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" pattern="03[0-9]{9}" maxlength="11" aria-describedby="phone-error" required>
+              <p class="error" id="phone-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="pickup-date">Pickup date</label>
+              <input id="pickup-date" name="pickupDate" type="date" required>
+            </div>
+          </div>
+
+          <ul class="quantity-list" aria-label="Choose menu quantities">
+            <li class="quantity-row"><label for="qty-chocolate-fudge">Chocolate Fudge Cake · Rs 1,250</label><input id="qty-chocolate-fudge" name="chocolateFudge" type="number" min="0" step="1" value="0" data-name="Chocolate Fudge Cake" data-price="1250" aria-label="Chocolate Fudge Cake quantity" aria-describedby="quantity-error"></li>
+            <li class="quantity-row"><label for="qty-strawberry-shortcake">Strawberry Shortcake · Rs 1,400</label><input id="qty-strawberry-shortcake" name="strawberryShortcake" type="number" min="0" step="1" value="0" data-name="Strawberry Shortcake" data-price="1400" aria-label="Strawberry Shortcake quantity"></li>
+            <li class="quantity-row"><label for="qty-lemon-drizzle">Lemon Drizzle Loaf · Rs 850</label><input id="qty-lemon-drizzle" name="lemonDrizzle" type="number" min="0" step="1" value="0" data-name="Lemon Drizzle Loaf" data-price="850" aria-label="Lemon Drizzle Loaf quantity"></li>
+            <li class="quantity-row"><label for="qty-chocolate-chip">Chocolate Chip Cookies · Rs 450</label><input id="qty-chocolate-chip" name="chocolateChip" type="number" min="0" step="1" value="0" data-name="Chocolate Chip Cookies" data-price="450" aria-label="Chocolate Chip Cookies quantity"></li>
+            <li class="quantity-row"><label for="qty-peanut-butter">Peanut Butter Cookies · Rs 500</label><input id="qty-peanut-butter" name="peanutButter" type="number" min="0" step="1" value="0" data-name="Peanut Butter Cookies" data-price="500" aria-label="Peanut Butter Cookies quantity"></li>
+            <li class="quantity-row"><label for="qty-oat-raisin">Oat &amp; Raisin Cookies · Rs 400</label><input id="qty-oat-raisin" name="oatRaisin" type="number" min="0" step="1" value="0" data-name="Oat &amp; Raisin Cookies" data-price="400" aria-label="Oat and Raisin Cookies quantity"></li>
+            <li class="quantity-row"><label for="qty-sourdough">Sourdough Boule · Rs 700</label><input id="qty-sourdough" name="sourdough" type="number" min="0" step="1" value="0" data-name="Sourdough Boule" data-price="700" aria-label="Sourdough Boule quantity"></li>
+            <li class="quantity-row"><label for="qty-milk-bread">Soft Milk Bread · Rs 550</label><input id="qty-milk-bread" name="milkBread" type="number" min="0" step="1" value="0" data-name="Soft Milk Bread" data-price="550" aria-label="Soft Milk Bread quantity"></li>
+          </ul>
+          <p class="error" id="quantity-error" aria-live="polite" hidden></p>
+
+          <p class="order-total" aria-live="polite">Order total: <span id="order-total">Rs 0</span></p>
+          <button class="button" type="submit">Place order</button>
+        </form>
+        <div class="thank-you" id="thank-you" role="status" tabindex="-1" hidden>
+          <h3>Thank you, <span id="summary-name"></span>!</h3>
+          <p id="summary-date"></p>
+          <ul id="summary-items"></ul>
+          <p class="order-total">Order total: <span id="summary-total"></span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Crumb &amp; Co. · Lahore</p>
+    <p>WhatsApp: 0300-1234567</p>
+  </footer>
+
+  <script>
+    const form = document.querySelector("#order-form");
+    const phoneInput = document.querySelector("#phone");
+    const phoneError = document.querySelector("#phone-error");
+    const quantityInputs = [...document.querySelectorAll("[data-price]")];
+    const firstQuantityInput = quantityInputs[0];
+    const quantityError = document.querySelector("#quantity-error");
+    const totalOutput = document.querySelector("#order-total");
+    const thankYou = document.querySelector("#thank-you");
+
+    function formatPrice(amount) {
+      return `Rs ${amount.toLocaleString("en-US")}`;
+    }
+
+    function getTotal() {
+      return quantityInputs.reduce((total, input) => {
+        const quantity = Number(input.value);
+        return total + (Number.isInteger(quantity) && quantity > 0 ? quantity * Number(input.dataset.price) : 0);
+      }, 0);
+    }
+
+    function updateTotal() {
+      totalOutput.textContent = formatPrice(getTotal());
+    }
+
+    function formatDate(dateValue) {
+      const [year, month, day] = dateValue.split("-").map(Number);
+      const date = new Date(year, month - 1, day);
+      const weekday = new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(date);
+      const monthName = new Intl.DateTimeFormat("en-US", { month: "short" }).format(date);
+      return `${weekday}, ${day} ${monthName} ${year}`;
+    }
+
+    quantityInputs.forEach((input) => input.addEventListener("input", () => {
+      quantityError.textContent = "";
+      quantityError.hidden = true;
+      firstQuantityInput.setAttribute("aria-invalid", "false");
+      updateTotal();
+    }));
+    phoneInput.addEventListener("input", () => {
+      if (/^03\d{9}$/.test(phoneInput.value)) {
+        phoneError.textContent = "";
+        phoneInput.setAttribute("aria-invalid", "false");
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const phoneIsValid = /^03\d{9}$/.test(phoneInput.value);
+      phoneError.textContent = phoneIsValid ? "" : "Please enter 11 digits starting with 03.";
+      phoneInput.setAttribute("aria-invalid", String(!phoneIsValid));
+
+      if (!phoneIsValid) {
+        phoneInput.focus();
+        return;
+      }
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      const selectedItems = quantityInputs
+        .filter((input) => Number(input.value) > 0 && Number.isInteger(Number(input.value)))
+        .map((input) => ({
+          name: input.dataset.name,
+          quantity: Number(input.value),
+          subtotal: Number(input.value) * Number(input.dataset.price)
+        }));
+
+      if (selectedItems.length === 0) {
+        quantityError.textContent = "Please choose at least one menu item.";
+        quantityError.hidden = false;
+        firstQuantityInput.setAttribute("aria-invalid", "true");
+        firstQuantityInput.focus();
+        return;
+      }
+
+      document.querySelector("#summary-name").textContent = form.elements.name.value.trim();
+      document.querySelector("#summary-date").textContent = `Pickup date: ${formatDate(form.elements.pickupDate.value)}`;
+      const summaryList = document.querySelector("#summary-items");
+      summaryList.replaceChildren();
+      selectedItems.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${item.name} × ${item.quantity} — ${formatPrice(item.subtotal)}`;
+        summaryList.append(listItem);
+      });
+      document.querySelector("#summary-total").textContent = formatPrice(getTotal());
+      form.hidden = true;
+      thankYou.hidden = false;
+      thankYou.focus();
+    });
+
+    updateTotal();
+  </script>
+</body>
+</html>
