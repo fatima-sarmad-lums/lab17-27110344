@@ -197,6 +197,27 @@
       font-weight: 700;
     }
 
+    .review-label {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .review-card blockquote,
+    .review-card p {
+      margin: 0;
+    }
+
+    .review-card p {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
     .about-copy {
       max-width: 720px;
       margin: 0 auto;
@@ -419,6 +440,27 @@
             <p class="price">Rs 550</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="favourites-title">
+      <h2 class="section-heading" id="favourites-title">Customer favourites</h2>
+      <div class="menu-grid">
+        <article class="menu-card review-card">
+          <span class="review-label">Sample review</span>
+          <blockquote>“The chocolate cake is rich and always so fresh.”</blockquote>
+          <p>A cake regular</p>
+        </article>
+        <article class="menu-card review-card">
+          <span class="review-label">Sample review</span>
+          <blockquote>“Your cookies make tea time feel special.”</blockquote>
+          <p>A cookie regular</p>
+        </article>
+        <article class="menu-card review-card">
+          <span class="review-label">Sample review</span>
+          <blockquote>“The milk bread is soft, lovely, and a family favourite.”</blockquote>
+          <p>A bread regular</p>
+        </article>
       </div>
     </section>
 
