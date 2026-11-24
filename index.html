@@ -485,7 +485,8 @@
             </div>
             <div class="field">
               <label for="pickup-date">Pickup date</label>
-              <input id="pickup-date" name="pickupDate" type="date" required>
+              <input id="pickup-date" name="pickupDate" type="date" aria-describedby="pickup-date-error" required>
+              <p class="error" id="pickup-date-error" aria-live="polite"></p>
             </div>
           </div>
 
@@ -523,11 +524,31 @@
     const form = document.querySelector("#order-form");
     const phoneInput = document.querySelector("#phone");
     const phoneError = document.querySelector("#phone-error");
+    const pickupDateInput = document.querySelector("#pickup-date");
+    const pickupDateError = document.querySelector("#pickup-date-error");
     const quantityInputs = [...document.querySelectorAll("[data-price]")];
     const firstQuantityInput = quantityInputs[0];
     const quantityError = document.querySelector("#quantity-error");
     const totalOutput = document.querySelector("#order-total");
     const thankYou = document.querySelector("#thank-you");
+
+    function getTodayDateValue() {
+      const today = new Date();
+      const month = String(today.getMonth() + 1).padStart(2, "0");
+      const day = String(today.getDate()).padStart(2, "0");
+      return `${today.getFullYear()}-${month}-${day}`;
+    }
+
+    function validatePickupDate() {
+      const today = getTodayDateValue();
+      pickupDateInput.min = today;
+      const isPast = Boolean(pickupDateInput.value && pickupDateInput.value < today);
+      pickupDateError.textContent = isPast ? "Please choose today or a future date." : "";
+      pickupDateInput.setAttribute("aria-invalid", String(isPast));
+      return !isPast;
+    }
+
+    validatePickupDate();
 
     function formatPrice(amount) {
       return `Rs ${amount.toLocaleString("en-US")}`;
@@ -564,15 +585,22 @@
         phoneInput.setAttribute("aria-invalid", "false");
       }
     });
+    pickupDateInput.addEventListener("input", validatePickupDate);
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const phoneIsValid = /^03\d{9}$/.test(phoneInput.value);
+      const pickupDateIsValid = validatePickupDate();
       phoneError.textContent = phoneIsValid ? "" : "Please enter 11 digits starting with 03.";
       phoneInput.setAttribute("aria-invalid", String(!phoneIsValid));
 
       if (!phoneIsValid) {
         phoneInput.focus();
+        return;
+      }
+
+      if (!pickupDateIsValid) {
+        pickupDateInput.focus();
         return;
       }
 
